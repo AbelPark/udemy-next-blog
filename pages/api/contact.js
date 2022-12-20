@@ -24,10 +24,10 @@ async function handler(req, res) {
 
     let client;
 
+    const connectingString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster_name}.3wdls1w.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+    console.log(connectingString);
     try {
-      client = await MongoClient.connect(
-        "mongodb+srv://udemy-test:dgoJkT4NEaFb6YJO@cluster0.3wdls1w.mongodb.net/apeach-blog?retryWrites=true&w=majority"
-      );
+      client = await MongoClient.connect(connectingString);
     } catch (error) {
       res.status(500).json({ message: "Could not connect to database." });
       return;
@@ -36,7 +36,6 @@ async function handler(req, res) {
     const db = client.db();
 
     try {
-      console.log("here");
       const result = await db.collection("messages").insertOne(newMessage);
       newMessage._id = result.insertedId;
     } catch (error) {

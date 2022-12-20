@@ -30,7 +30,6 @@ export function getStaticProps(context: any) {
   const { slug } = params;
 
   const postData = getPostData(slug);
-  console.log(postData);
 
   return {
     props: {

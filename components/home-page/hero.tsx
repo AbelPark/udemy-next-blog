@@ -12,7 +12,7 @@ export default function Hero() {
           alt="An image showing apeach"
         />
       </div>
-      <h1>Hi, I'm Apeach</h1>
+      <h1>{`Hi, I'm Apeach`}</h1>
       <p>
         I blog about web development - especially frontend frameworks like Vue
         ro React.

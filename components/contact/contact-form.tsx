@@ -5,7 +5,6 @@ import Notification from "../ui/notification";
 
 async function sendContactData(contactDetails: any) {
   const response = await axios.post("/api/contact", contactDetails);
-  console.log(response);
   if (response.status !== 201) {
     throw new Error("Something went wrong!");
   }
