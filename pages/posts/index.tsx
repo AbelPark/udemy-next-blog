@@ -1,8 +1,17 @@
+import Head from "next/head";
 import AllPosts from "../../components/posts/all-posts";
 import { getAllPosts } from "../../lib/posts-util";
 
 export default function AllPostsPage(props: any) {
-  return <AllPosts posts={props.posts} />;
+  return (
+    <>
+      <Head>
+        <title>All Posts</title>
+        <meta name="description" content="이곳이다!" />
+      </Head>
+      <AllPosts posts={props.posts} />;
+    </>
+  );
 }
 
 export function getStaticProps() {
