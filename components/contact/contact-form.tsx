@@ -18,15 +18,16 @@ export default function ContactForm() {
   const [requestStatus, setRequestStatus]: any = useState(); // 'pending, 'success', 'error'
   const [requestError, setRequestError]: any = useState();
 
-  // useEffect(() => {
-  //   if (requestStatus === "success" || requestStatus === "error") {
-  //     const timer = setTimeout(() => {
-  //       setRequestStatus(null);
-  //       setRequestError(null);
-  //     }, 3000);
-  //     return () => clearInterval(timer);
-  //   }
-  // }, [requestStatus]);
+  useEffect(() => {
+    if (requestStatus === "success" || requestStatus === "error") {
+      const timer = setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+      return () => clearInterval(timer);
+    }
+  }, [requestStatus]);
+
   async function sendMessage(event: SyntheticEvent) {
     event.preventDefault();
     setRequestStatus("pending");
